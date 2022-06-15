@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export default function useFecth() {
+export default function useFecth(params) {
   const [fetched, setFetched] = useState();
 
   useEffect(() => {

@@ -35,7 +35,7 @@ export default function Converter() {
       </form>
       {convertForm.convertFrom} = {convertForm.convertTo}
       {newConversion && <p>CONVERTED: {newConversion.toFixed(2)}</p>}
-     <HistoryGraph convertForm={convertForm} newConversion={newConversion} />
+     {/* <HistoryGraph convertForm={convertForm} newConversion={newConversion} /> */}
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { LineChart, Line, YAxis } from "recharts";
+import { LineChart, Line, YAxis, XAxis } from "recharts";
 
 export default function HistoryGraph({ convertForm, newConversion }) {
   const [timeData, setTimeData] = useState();
@@ -22,9 +22,13 @@ export default function HistoryGraph({ convertForm, newConversion }) {
       return temp[convertTo];
     });
 
+  const xAxisData = Object.keys(timeData).map((date) => date);
+  console.log("xAxisData", xAxisData)
+
   const renderLineChart = (
-    <LineChart width={400} height={200} data={mappedData}>
-      <YAxis />
+    <LineChart width={400} height={100} data={mappedData}>
+      <XAxis dataKey={xAxisData} scale="log" />
+      <YAxis tickCount={10} />
       <Line type="monotone" dataKey={(v) => v} stroke="#8884d8" dot={false} />
     </LineChart>
   )
