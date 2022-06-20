@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+import Converter from "./Components/Converter/Converter";
+import { CurrencyContextProvider } from "./Components/CurrencyContext/CurrencyContext"
+import Header from "./Components/Header/Header"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CurrencyContextProvider>
+      <div className="bg-gradient-to-r from-cyan-500 to-blue-500 min-h-screen">
+        <Header />
+        <Converter />
+      </div>
+    </CurrencyContextProvider>
   );
 }
 
