@@ -6,7 +6,6 @@ import SwitchButton from "../SwitchButton/SwitchButton";
 import HistoryGraph from "../HistoryGraph/HistoryGraph";
 import Header from "../Header/Header";
 import Result from "../Result/Result";
-import findFlag from "../helpers/findFlag";
 import { data } from "../../data/data"
 import Emoji from 'a11y-react-emoji'
 
@@ -32,9 +31,9 @@ export default function Converter() {
 
 
   return (
-    <div className="my-3 p-3 flex flex-col justify-center align-center">
-      <div className="border-solid border-t-2 border-black mb-7"></div>
-      <form onSubmit={submitHandler} className="flex flex-col">
+    <div className="my-3 p-3 flex flex-col justify-center align-center md:items-center md:border-solid md:border-t-2 md:border-black md:mx-3">
+      <div className="border-solid border-t-2 border-black mb-7 md:mb-2" />
+      <form onSubmit={submitHandler} className="flex flex-col" >
         <SelectMap setConvertForm={setConvertForm} toOrFrom={"convertFrom"} />
         <SelectMap setConvertForm={setConvertForm} toOrFrom={"convertTo"} />
         <input
@@ -46,7 +45,7 @@ export default function Converter() {
           required
           onChange={(e) => setConvertForm({ ...convertForm, amount: e.target.value })}
         />
-        <div className="my-2 flex flex-row space-between">
+        <div className="my-2 flex flex-row space-between md:max-w-xl">
           <button type="submit" className="p-2 max-h-[48px] flex-auto w-32 bg-transparent font-semibold border-solid border-2 rounded border-white text-xl text-white" >CONVERT!</button>
           <SwitchButton setConvertForm={setConvertForm} convertForm={convertForm} />
         </div>

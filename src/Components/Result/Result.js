@@ -30,7 +30,7 @@ export default function Result({ newConversion, convertForm, newExchangeRate }) 
   }
 
   return (
-    <div className="bg-white rounded p-2 my-6  text-4xl flex flex-col text-center font-semibold">
+    <div className="bg-white rounded p-2 my-6 text-4xl flex flex-col text-center shadow-xl font-semibold text-zinc-800 md:min-w-[57.5%] md:pt-5">
       <div className="flex flex-row justify-center">
         {convertForm.amount && data[convertForm.convertFrom] &&
           <h1>{data[convertForm.convertFrom].symbol}{convertForm.amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}&nbsp;</h1>
@@ -41,8 +41,8 @@ export default function Result({ newConversion, convertForm, newExchangeRate }) 
       </div>
       <h1>=</h1>
       {data[convertForm.convertTo]
-        ? <h1>{data[convertForm.convertTo].symbol}{newConversion.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h1>
-        : <h1>{newConversion.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} {convertForm.convertTo}</h1>
+        ? <h1>{data[convertForm.convertTo].symbol}{newConversion.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h1>
+        : <h1>{newConversion.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} {convertForm.convertTo}</h1>
       }
       {symbols()}
       {convertForm.amount !== "1" ?
