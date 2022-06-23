@@ -43,6 +43,7 @@ export default function Converter() {
           placeholder="amount (optional)"
           className="my-2 py-2 text-center text-2xl rounded shadow-xl focus:outline-none focus:bg-slate-300"
           value={convertForm.amount}
+          required
           onChange={(e) => setConvertForm({ ...convertForm, amount: e.target.value })}
         />
         <div className="my-2 flex flex-row space-between">
@@ -50,8 +51,6 @@ export default function Converter() {
           <SwitchButton setConvertForm={setConvertForm} convertForm={convertForm} />
         </div>
       </form>
-      {/* <h3>{convertForm.convertFrom} = {convertForm.convertTo}</h3> */}
-      {/* <h3>{newConversion && <h3>CONVERTED: {newConversion.toFixed(2)}</h3>}</h3> */}
       {newConversion && 
         <Result
           newConversion={newConversion}

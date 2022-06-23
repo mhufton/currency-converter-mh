@@ -30,7 +30,7 @@ export default function SelectMap({ setConvertForm, toOrFrom }) {
   return (
     <div className="bg-white my-2 pl-8 flex flex-row space-x-2 justify-center align-center rounded shadow-xl">
       <div className="pt-2 pl-20 text-5xl text-right w-1/2">
-        {data[selectedCode].flag && data[selectedCode].flag}
+        {data[selectedCode] && data[selectedCode].flag && data[selectedCode].flag}
       </div>
       <div className="">
         <Combobox value={selectedCode} onChange={setSelectedCode} name="code">
