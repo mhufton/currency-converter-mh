@@ -8,6 +8,7 @@ import Header from "../Header/Header";
 import Result from "../Result/Result";
 import { data } from "../../data/data"
 import Emoji from 'a11y-react-emoji'
+import CurrencySelector from "../CurrencySelector/CurrencySelector"
 
 export default function Converter() {
   const [convertForm, setConvertForm] = useState({
@@ -34,12 +35,14 @@ export default function Converter() {
     <div className="my-3 p-3 flex flex-col justify-center align-center md:items-center md:border-solid md:border-t-2 md:border-black md:mx-3">
       <div className="border-solid border-t-2 border-black mb-7 md:mb-2" />
       <form onSubmit={submitHandler} className="flex flex-col" >
-        <SelectMap setConvertForm={setConvertForm} toOrFrom={"convertFrom"} />
-        <SelectMap setConvertForm={setConvertForm} toOrFrom={"convertTo"} />
+        {/* <SelectMap setConvertForm={setConvertForm} toOrFrom={"convertFrom"} />
+        <SelectMap setConvertForm={setConvertForm} toOrFrom={"convertTo"} /> */}
+        <CurrencySelector setConvertForm={setConvertForm} toOrFrom={"convertFrom"}/>
+        <CurrencySelector setConvertForm={setConvertForm} toOrFrom={"convertTo"}/>
         <input
           type="text"
           name="amount"
-          placeholder="amount (optional)"
+          placeholder="enter an amount greater than 0"
           className="my-2 py-2 text-center text-2xl rounded shadow-xl focus:outline-none focus:bg-slate-300"
           value={convertForm.amount}
           required
