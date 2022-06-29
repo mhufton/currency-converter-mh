@@ -35,8 +35,8 @@ export default function Converter() {
       <div className="border-solid border-t-2 border-black mb-7 md:mb-2" />
       <div>
         <form onSubmit={submitHandler} className="flex flex-col" >
-          <CurrencySelector setConvertForm={setConvertForm} toOrFrom={"convertFrom"} />
-          <CurrencySelector setConvertForm={setConvertForm} toOrFrom={"convertTo"} />
+          <CurrencySelector convertForm={convertForm} setConvertForm={setConvertForm} toOrFrom={"convertFrom"} />
+          <CurrencySelector convertForm={convertForm} setConvertForm={setConvertForm} toOrFrom={"convertTo"} />
           <input
             type="text"
             name="amount"

@@ -4,7 +4,7 @@ import { data } from "../../data";
 import { Listbox, Transition } from '@headlessui/react';
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 
-export default function CurrencySelector({ setConvertForm, toOrFrom }) {
+export default function CurrencySelector({ convertForm, setConvertForm, toOrFrom }) {
   const currencyObj = useContext(CurrencyContext);
   const currencyCodes = Object.keys(currencyObj).map((c) => c);
   const customCodes = Object.keys(data).map(c => c)
@@ -17,6 +17,12 @@ export default function CurrencySelector({ setConvertForm, toOrFrom }) {
       ? setConvertForm((convertForm) => ({ ...convertForm, convertFrom: selectedCode }))
       : setConvertForm((convertForm) => ({ ...convertForm, convertTo: selectedCode }))
   }, [selectedCode])
+
+  useEffect(() => {
+    toOrFrom === "convertFrom" 
+      ? setSelectedCode(convertForm.convertFrom)
+      : setSelectedCode(convertForm.convertTo)
+  }, [convertForm])
 
   if (toOrFrom === "convertFrom") {
     return (
