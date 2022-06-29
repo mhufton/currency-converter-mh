@@ -4,7 +4,7 @@ import { data } from "../../data";
 import { Listbox, Transition } from '@headlessui/react';
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 
-export default function CurrencySelector({ convertForm, setConvertForm, toOrFrom }) {
+export default function CurrencySelector({ convertForm, setConvertForm, toOrFrom, switched }) {
   const currencyObj = useContext(CurrencyContext);
   const currencyCodes = Object.keys(currencyObj).map((c) => c);
   const customCodes = Object.keys(data).map(c => c)
@@ -18,12 +18,14 @@ export default function CurrencySelector({ convertForm, setConvertForm, toOrFrom
       : setConvertForm((convertForm) => ({ ...convertForm, convertTo: selectedCode }))
   }, [selectedCode])
 
-  useEffect(() => {
-    toOrFrom === "convertFrom" 
-      ? setSelectedCode(convertForm.convertFrom)
-      : setSelectedCode(convertForm.convertTo)
-  }, [convertForm])
+  // useEffect(() => {
+  //   toOrFrom === "convertFrom"
+  //     ? setSelectedCode(convertForm.convertTo)
+  //     : setSelectedCode(convertForm.convertFrom)
+  // }, [convertForm])
 
+  // conditional render so the first dropdown list has a higher z-index
+  // and remains the top most element when the list drops down
   if (toOrFrom === "convertFrom") {
     return (
       <div className="convertFrom mb-4 text-xl z-[9999] md:w-[350px]">

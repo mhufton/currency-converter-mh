@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import SelectMap from "../SelectMap/SelectMap";
 import useExchange from "../hooks/useExchanger"
@@ -18,9 +18,10 @@ export default function Converter() {
   })
   const [converted, setConverted] = useState(convertForm)
   const [exchangeRate, setExchangeRate] = useState(convertForm)
+  const [switched, setSwitched] = useState(false)
 
   const newConversion = useExchange(converted)
-  const newExchangeRate = useExchange(exchangeRate)
+  const newExchangeRate  = useExchange(exchangeRate)
   const submitHandler = (e) => {
     e.preventDefault()
     setConverted(convertForm)
@@ -35,8 +36,8 @@ export default function Converter() {
       <div className="border-solid border-t-2 border-black mb-7 md:mb-2" />
       <div>
         <form onSubmit={submitHandler} className="flex flex-col" >
-          <CurrencySelector convertForm={convertForm} setConvertForm={setConvertForm} toOrFrom={"convertFrom"} />
-          <CurrencySelector convertForm={convertForm} setConvertForm={setConvertForm} toOrFrom={"convertTo"} />
+          <CurrencySelector convertForm={convertForm} setConvertForm={setConvertForm} toOrFrom={"convertFrom"} switched={switched} />
+          <CurrencySelector convertForm={convertForm} setConvertForm={setConvertForm} toOrFrom={"convertTo"} switched={switched} />
           <input
             type="text"
             name="amount"
@@ -47,8 +48,8 @@ export default function Converter() {
             onChange={(e) => setConvertForm({ ...convertForm, amount: e.target.value })}
           />
           <div className="my-2 flex flex-row space-between md:max-w-xl">
-            <button type="submit" className="p-2 max-h-[48px] flex-auto w-32 bg-transparent font-semibold border-solid border-2 rounded-xl border-white text-xl text-white" >CONVERT!</button>
-            <SwitchButton setConvertForm={setConvertForm} convertForm={convertForm} />
+            <button type="submit" className="p-2 max-h-[48px] flex-auto w-32 bg-transparent font-semibold border-solid border-2 rounded-xl border-white text-xl text-white" >CONVERT</button>
+            <SwitchButton setConvertForm={setConvertForm} convertForm={convertForm} setSwitched={setSwitched} switched={switched} />
           </div>
         </form>
       </div>
