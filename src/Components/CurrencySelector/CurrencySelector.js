@@ -7,6 +7,7 @@ import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 export default function CurrencySelector({ setConvertForm, toOrFrom }) {
   const currencyObj = useContext(CurrencyContext);
   const currencyCodes = Object.keys(currencyObj).map((c) => c);
+  const customCodes = Object.keys(data).map(c => c)
   const [selectedCode, setSelectedCode] = useState(
     toOrFrom === "convertFrom" ? "USD" : "GBP"
   );
@@ -38,7 +39,7 @@ export default function CurrencySelector({ setConvertForm, toOrFrom }) {
               leaveTo="opacity-0"
             >
               <Listbox.Options className="absolute z-[9999] mt-1 max-h-60 w-full overflow-y-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                {currencyCodes.map((c, index) => (
+                {customCodes.map((c, index) => (
                   <Listbox.Option
                     key={index}
                     className={({ active }) =>
@@ -93,7 +94,7 @@ export default function CurrencySelector({ setConvertForm, toOrFrom }) {
               leaveTo="opacity-0"
             >
               <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                {currencyCodes.map((c, index) => (
+                {customCodes.map((c, index) => (
                   <Listbox.Option
                     key={index}
                     className={({ active }) =>
