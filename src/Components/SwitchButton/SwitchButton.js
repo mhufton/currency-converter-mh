@@ -14,7 +14,7 @@ export default function SwitchButton({ setConvertForm, convertForm }) {
   }
 
   return (
-    <button onClick={stateSwap} className="flex-1 ml-2 max-h-[48px] max-w-[48px] border-2 border-white rounded p-3.5">
+    <button onClick={stateSwap} className="flex-1 ml-2 max-h-[48px] max-w-[48px] border-2 border-white rounded-xl p-3.5">
       <HiOutlineSwitchVertical style={{ color: "white" }}/>
     </button>
   )
