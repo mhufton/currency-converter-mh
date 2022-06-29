@@ -17,7 +17,7 @@ export default function Result({ newConversion, convertForm, newExchangeRate }) 
     )}
 
   return (
-    <div className="bg-white rounded-xl p-2 my-3 text-4xl flex flex-col text-center shadow-xl font-semibold text-zinc-800 md:min-w-[57.5%] md:pt-5">
+    <div className="bg-white rounded-xl p-2 my-3 text-4xl flex flex-col text-center shadow-xl font-semibold text-zinc-800 md:min-w-[350px] md:pt-5">
       <div className="flex flex-row justify-center">
         {convertForm.amount && data[convertForm.convertFrom] &&
           <h1>{data[convertForm.convertFrom].symbol}{convertForm.amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}&nbsp;</h1>
