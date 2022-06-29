@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { data } from "../../data/data"
+import { data } from "../..{data[c] && data[c].flag} {c}/data"
 
 export default function Result({ newConversion, convertForm, newExchangeRate }) {
 

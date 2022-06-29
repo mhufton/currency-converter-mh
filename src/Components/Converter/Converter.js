@@ -6,7 +6,7 @@ import SwitchButton from "../SwitchButton/SwitchButton";
 import HistoryGraph from "../HistoryGraph/HistoryGraph";
 import Header from "../Header/Header";
 import Result from "../Result/Result";
-import { data } from "../../data/data"
+import { data } from "../../data"
 import Emoji from 'a11y-react-emoji'
 import CurrencySelector from "../CurrencySelector/CurrencySelector"
 
@@ -30,6 +30,10 @@ export default function Converter() {
     })
   }
 
+  console.log("convertForm", convertForm)
+  console.log("newConversion", newConversion)
+
+
 
   return (
     <div className="my-3 p-3 flex flex-col justify-center align-center md:items-center md:border-solid md:border-t-2 md:border-black md:mx-3">
@@ -43,7 +47,7 @@ export default function Converter() {
           type="text"
           name="amount"
           placeholder="enter an amount greater than 0"
-          className="my-2 py-2 text-center text-2xl rounded shadow-xl focus:outline-none focus:bg-slate-300"
+          className="my-3 py-2 text-center text-2xl rounded-lg shadow-xl focus:outline-none focus:bg-slate-300"
           value={convertForm.amount}
           required
           onChange={(e) => setConvertForm({ ...convertForm, amount: e.target.value })}

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { CurrencyContext } from "../CurrencyContext/CurrencyContext";
 import { Combobox, Transition } from "@headlessui/react";
-import { data } from "../../data/data"
+import { data } from "../../data"
 
 export default function SelectMap({ setConvertForm, toOrFrom }) {
   const currencyObj = useContext(CurrencyContext);
