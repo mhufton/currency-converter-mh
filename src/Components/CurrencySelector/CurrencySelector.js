@@ -22,7 +22,7 @@ export default function CurrencySelector({ convertForm, setConvertForm, toOrFrom
   //   toOrFrom === "convertFrom"
   //     ? setSelectedCode(convertForm.convertTo)
   //     : setSelectedCode(convertForm.convertFrom)
-  // }, [convertForm])
+  // }, [switched])
 
   // conditional render so the first dropdown list has a higher z-index
   // and remains the top most element when the list drops down

@@ -20,6 +20,10 @@ export default function Converter() {
   const [exchangeRate, setExchangeRate] = useState(convertForm)
   const [switched, setSwitched] = useState(false)
 
+  // sets the result card convertFrom to only populate on "convert" button click
+  const [resultFrom, setResultFrom] = useState(null)
+  console.log("resultFrom", resultFrom)
+
   const newConversion = useExchange(converted)
   const newExchangeRate  = useExchange(exchangeRate)
   const submitHandler = (e) => {
@@ -29,6 +33,7 @@ export default function Converter() {
       ...convertForm,
       amount: "1"
     })
+    setResultFrom(convertForm.amount)
   }
 
   return (
@@ -58,6 +63,7 @@ export default function Converter() {
           newConversion={newConversion}
           convertForm={convertForm}
           newExchangeRate={newExchangeRate}
+          resultFrom={resultFrom}
         />}
     </div>
   )
