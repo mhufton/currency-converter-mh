@@ -1,7 +1,7 @@
 import React from "react";
 import { HiSwitchVertical, HiOutlineSwitchVertical } from "react-icons/hi";
 
-export default function SwitchButton({ setConvertForm, convertForm, setSwitched, switched }) {
+export default function SwitchButton({ setConvertForm, convertForm }) {
   
   const stateSwap = () => {
     const tempFrom = convertForm.convertFrom;
@@ -11,7 +11,6 @@ export default function SwitchButton({ setConvertForm, convertForm, setSwitched,
       convertFrom: tempTo,
       convertTo: tempFrom
     })
-    setSwitched(!switched)
   }
 
   return (

@@ -4,20 +4,19 @@ import useExchange from "./hooks/useExchanger"
 import SwitchButton from "./SwitchButton";
 import Result from "./Result";
 import { data } from "../data"
-import CurrencySelector from "./CurrencySelector"
+import CurrencySelector2 from "./CurrencySelector"
 
 export default function Converter() {
   const [convertForm, setConvertForm] = useState({
-    convertFrom: "",
-    convertTo: "",
+    convertFrom: "USD",
+    convertTo: "GBP",
     amount: "1",
   })
   const [converted, setConverted] = useState(convertForm)
   const [exchangeRate, setExchangeRate] = useState(convertForm)
-  const [switched, setSwitched] = useState(false)
 
   // sets the result card convertFrom to only populate on "convert" button click
-  const [resultFrom, setResultFrom] = useState(null)
+  const [convertClicked, setConvertClicked] = useState(false)
 
   const newConversion = useExchange(converted)
   const newExchangeRate  = useExchange(exchangeRate)
@@ -28,7 +27,7 @@ export default function Converter() {
       ...convertForm,
       amount: "1"
     })
-    setResultFrom(convertForm.amount)
+    setConvertClicked(true)
   }
 
   return (
@@ -36,8 +35,8 @@ export default function Converter() {
       <div className="border-solid border-t-2 border-black mb-7 md:mb-2" />
       <div>
         <form onSubmit={submitHandler} className="flex flex-col" >
-          <CurrencySelector convertForm={convertForm} setConvertForm={setConvertForm} toOrFrom={"convertFrom"} switched={switched} />
-          <CurrencySelector convertForm={convertForm} setConvertForm={setConvertForm} toOrFrom={"convertTo"} switched={switched} />
+          <CurrencySelector2 name={"convertFrom"} value={convertForm.convertFrom} doSelectCurrency={(v) => setConvertForm({ ...convertForm, convertFrom: v })} />
+          <CurrencySelector2 name={"convertFrom"} value={convertForm.convertTo} doSelectCurrency={(v) => setConvertForm({ ...convertForm, convertTo: v })} />
           <input
             type="text"
             name="amount"
@@ -49,16 +48,15 @@ export default function Converter() {
           />
           <div className="my-2 flex flex-row space-between md:max-w-xl">
             <button type="submit" className="p-2 max-h-[48px] flex-auto w-32 bg-transparent font-semibold border-solid border-2 rounded-xl border-white text-xl text-white" >CONVERT</button>
-            <SwitchButton setConvertForm={setConvertForm} convertForm={convertForm} setSwitched={setSwitched} switched={switched} />
+            <SwitchButton setConvertForm={setConvertForm} convertForm={convertForm} />
           </div>
         </form>
       </div>
-      {newConversion && 
+      {convertClicked && 
         <Result
           newConversion={newConversion}
           convertForm={convertForm}
           newExchangeRate={newExchangeRate}
-          resultFrom={resultFrom}
         />}
     </div>
   )
