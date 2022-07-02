@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-import SelectMap from "../SelectMap/SelectMap";
-import useExchange from "../hooks/useExchanger"
-import SwitchButton from "../SwitchButton/SwitchButton";
-import HistoryGraph from "../HistoryGraph/HistoryGraph";
-import Header from "../Header/Header";
-import Result from "../Result/Result";
-import { data } from "../../data"
-import Emoji from 'a11y-react-emoji'
-import CurrencySelector from "../CurrencySelector/CurrencySelector"
+import useExchange from "./hooks/useExchanger"
+import SwitchButton from "./SwitchButton";
+import Result from "./Result";
+import { data } from "../data"
+import CurrencySelector from "./CurrencySelector"
 
 export default function Converter() {
   const [convertForm, setConvertForm] = useState({
@@ -22,7 +18,6 @@ export default function Converter() {
 
   // sets the result card convertFrom to only populate on "convert" button click
   const [resultFrom, setResultFrom] = useState(null)
-  console.log("resultFrom", resultFrom)
 
   const newConversion = useExchange(converted)
   const newExchangeRate  = useExchange(exchangeRate)

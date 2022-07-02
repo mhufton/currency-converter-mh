@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState, Fragment } from "react";
-import { CurrencyContext } from "../CurrencyContext/CurrencyContext";
-import { data } from "../../data";
+import { CurrencyContext } from "./CurrencyContext";
+import { data } from "../data";
 import { Listbox, Transition } from '@headlessui/react';
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 

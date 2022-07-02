@@ -1,8 +1,8 @@
 import React from "react";
 
-import Converter from "./Components/Converter/Converter";
-import { CurrencyContextProvider } from "./Components/CurrencyContext/CurrencyContext"
-import Header from "./Components/Header/Header"
+import Converter from "./Components/Converter";
+import { CurrencyContextProvider } from "./Components/CurrencyContext"
+import Header from "./Components/Header"
 
 function App() {
   return (
